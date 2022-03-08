@@ -1,0 +1,23 @@
+.audio_player {
+  --player-button-width: 3em;
+  --sound-button-width: 2em;
+  --space: .5em;
+  display: inline-block;
+}
+
+.controls {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  width: 100%;
+  margin-top: 10px;
+}
+
+.player_button {
+  background-color: transparent;
+  border: 0;
+  width: var(--player-button-width);
+  height: var(--player-button-width);
+  cursor: pointer;
+  padding: 0;
+}

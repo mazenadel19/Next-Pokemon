@@ -1,0 +1,20 @@
+.Search input {
+    margin: 15px 0;
+    border: none;
+    width: 330px;
+    max-width: 100%;
+    background-image: linear-gradient(var(--main-color), var(--main-color)), linear-gradient(#D2D2D2, #D2D2D2);
+    background-size: 0 2px, 100% 1px;
+    background-repeat: no-repeat;
+    background-position: center bottom, center calc(100% - 1px);
+    background-color: transparent;
+    border-radius: 0;
+    font-weight: 400;
+    font-size: 1.1rem;
+    transition: background 0.2s ease-out;
+}
+
+.Search input:focus {
+    background-size: 100% 2px, 100% 1px;
+    background-color: transparent;
+}

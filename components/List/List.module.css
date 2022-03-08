@@ -1,0 +1,13 @@
+.card {
+	padding: 1rem;
+	cursor: pointer;
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	align-items: center;
+}
+
+.card img {
+	max-width: 180px;
+	max-height: 180px;
+}
