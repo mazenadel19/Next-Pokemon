@@ -6,8 +6,6 @@ import AudioPlayer from '../components/AudioPlayer/AudioPlayer';
 // Style
 import Styles from '../styles/Home.module.css';
 
-
-
 export default function Home() {
 	const [FilteredData, setFilteredData] = useState([]);
 	const [PokemonList, setPokemonList] = useState([]);
@@ -47,12 +45,10 @@ export default function Home() {
 						setPokemonList={setPokemonList}
 					/>
 
-					<AudioPlayer/>
+					<AudioPlayer />
 				</section>
 
-				<div className={Styles.grid}>
-					<PokeList data={Pagination || PokemonList || FilteredData}/>
-				</div>
+				<PokeList data={Pagination || PokemonList || FilteredData} />
 
 				<PokePagination
 					rows={8}
