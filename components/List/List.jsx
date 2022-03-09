@@ -15,7 +15,7 @@ const List = ({ data }) => {
 				{data.map((pokemon, index) => (
 					<div className={Styles.card} key={pokemon.id}>
 						<Link href={`/pokemon/${pokemon.id}`} passHref>
-							<>
+							<a>
 								<Image
 									height={200}
 									width={200}
@@ -23,7 +23,7 @@ const List = ({ data }) => {
 									alt={pokemon.name}
 								/>
 								<h3>{pokemon.name}</h3>
-							</>
+							</a>
 						</Link>
 					</div>
 				))}
