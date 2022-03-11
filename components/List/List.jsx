@@ -9,6 +9,11 @@ const List = ({ data }) => {
 		return 'No Pokémon found';
 	}
 
+	console.log(data);
+
+	const myLoader = ({ src }) =>
+		`https://jherr-pokemon.s3.us-west-1.amazonaws.com/${src}`;
+
 	return (
 		<React.Fragment>
 			<div className={Styles.grid}>
@@ -17,9 +22,10 @@ const List = ({ data }) => {
 						<Link href={`/pokemon/${pokemon.id}`} passHref>
 							<a>
 								<Image
+									loader={myLoader}
 									height={200}
 									width={200}
-									src={`https://jherr-pokemon.s3.us-west-1.amazonaws.com/${pokemon.image}`}
+									src={`${pokemon.image}`}
 									alt={pokemon.name}
 								/>
 								<h3>{pokemon.name}</h3>
