@@ -1,25 +1,30 @@
 import Head from 'next/head';
-import { useEffect, useState } from 'react';
+import { useState } from 'react';
 // Components
-import { PokeList, PokePagination, PokePlayer, PokeSearch } from '../components';
+import {
+	PokeList,
+	PokePagination,
+	PokePlayer,
+	PokeSearch,
+} from '../components';
 // Style
 import Styles from '../styles/Home.module.css';
 
-export default function Home() {
-	const [FilteredData, setFilteredData] = useState([]);
+export async function getServerSideProps() {
+	const res = await fetch(
+		'https://jherr-pokemon.s3.us-west-1.amazonaws.com/index.json',
+	);
+	return {
+		props: {
+			data: await res.json(),
+		},
+	};
+}
+
+export default function Home({ data }) {
+	const [FilteredData] = useState(data);
 	const [PokemonList, setPokemonList] = useState([]);
 	const [Pagination, setPagination] = useState([]);
-
-	useEffect(() => {
-		async function getPokemon() {
-			const res = await fetch(
-				'https://jherr-pokemon.s3.us-west-1.amazonaws.com/index.json',
-			);
-			const data = await res.json();
-			setFilteredData(data);
-		}
-		getPokemon();
-	}, []);
 
 	return (
 		<div className={Styles.container}>

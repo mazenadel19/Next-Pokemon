@@ -1,29 +1,21 @@
 /* eslint-disable @next/next/no-img-element */
 import Head from 'next/head';
 import Link from 'next/link';
-import { useRouter } from 'next/router';
-import { useEffect, useState } from 'react';
 //styles
 import Styles from '../../styles/Details.module.css';
 
-const Detail = () => {
-	const {
-		query: { id },
-	} = useRouter();
+export async function getServerSideProps({ params }) {
+	const res = await fetch(
+		`https://jherr-pokemon.s3.us-west-1.amazonaws.com/pokemon/${params.id}.json`,
+	);
+	return {
+		props: {
+			Pokemon: await res.json(),
+		},
+	};
+}
 
-	const [Pokemon, setPokemon] = useState(null);
-
-	useEffect(() => {
-		async function getPokemon() {
-			const res = await fetch(
-				`https://jherr-pokemon.s3.us-west-1.amazonaws.com/pokemon/${id}.json`,
-			);
-			const data = await res.json();
-			setPokemon(data);
-		}
-		id && getPokemon();
-	}, [id]);
-
+const Detail = ({ Pokemon }) => {
 	if (!Pokemon) return null;
 
 	return (
@@ -31,7 +23,7 @@ const Detail = () => {
 			<Head>
 				<title>{Pokemon.name}</title>
 			</Head>
-			<Link  href='/'>
+			<Link href='/'>
 				<a className={Styles.link}> &lt;&lt; Back To Home</a>
 			</Link>
 			<div className={Styles.layout}>
