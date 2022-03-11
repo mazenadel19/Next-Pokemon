@@ -9,8 +9,6 @@ const List = ({ data }) => {
 		return 'No Pokémon found';
 	}
 
-	console.log(data);
-
 	const myLoader = ({ src }) =>
 		`https://jherr-pokemon.s3.us-west-1.amazonaws.com/${src}`;
 
@@ -20,15 +18,15 @@ const List = ({ data }) => {
 				{data.map((pokemon, index) => (
 					<div className={Styles.card} key={pokemon.id}>
 						<Link href={`/pokemon/${pokemon.id}`} passHref>
-							<a>
+							<a className={Styles.link}>
 								<Image
 									loader={myLoader}
-									height={200}
-									width={200}
+									height={250}
+									width={250}
 									src={`${pokemon.image}`}
 									alt={pokemon.name}
 								/>
-								<h3>{pokemon.name}</h3>
+								<h3 className={Styles.text}>{pokemon.name}</h3>
 							</a>
 						</Link>
 					</div>

@@ -24,11 +24,11 @@
 	justify-content: space-between;
 }
 
-
 @media screen and (max-width: 600px) {
 	.subtitle {
 		justify-content: center;
 		margin: 10px 0;
+		flex-wrap: wrap;
 	}
 	.subtitle h2 {
 		display: none;

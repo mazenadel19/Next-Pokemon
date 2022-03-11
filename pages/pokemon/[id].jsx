@@ -1,6 +1,10 @@
 /* eslint-disable @next/next/no-img-element */
+import Head from 'next/head';
+import Link from 'next/link';
 import { useRouter } from 'next/router';
 import { useEffect, useState } from 'react';
+//styles
+import Styles from '../../styles/Details.module.css';
 
 const Detail = () => {
 	const {
@@ -22,7 +26,47 @@ const Detail = () => {
 
 	if (!Pokemon) return null;
 
-	return <div>{JSON.stringify(Pokemon)}</div>;
+	return (
+		<div>
+			<Head>
+				<title>{Pokemon.name}</title>
+			</Head>
+			<Link href='/'>
+				<a>Back To Home</a>
+			</Link>
+			<div className={Styles.layout}>
+				<div>
+					<img
+						className={Styles.picture}
+						src={`https://jherr-pokemon.s3.us-west-1.amazonaws.com/${Pokemon.image}`}
+						alt={Pokemon.name}
+					/>
+				</div>
+				<div>
+					<div className={Styles.name}>{Pokemon.name}</div>
+					<div className={Styles.type}>{Pokemon.type.join(', ')}</div>
+					<table>
+						<thead className={Styles.header}>
+							<tr>
+								<th>Name</th>
+								<th>Value</th>
+							</tr>
+						</thead>
+						<tbody>
+							{Pokemon.stats.map((Stat, Index) => (
+								<tr key={Index}>
+									<td className={Styles.attribute}>
+										{Stat.name}
+									</td>
+									<td>{Stat.value}</td>
+								</tr>
+							))}
+						</tbody>
+					</table>
+				</div>
+			</div>
+		</div>
+	);
 };
 
 export default Detail;

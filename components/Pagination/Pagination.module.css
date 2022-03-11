@@ -18,10 +18,6 @@
 	gap: 15px;
 }
 
-[dir='ar'] .Pagination .action_container {
-	flex-direction: row-reverse;
-}
-
 .Pagination .action_container button {
 	border: none;
 	background: none;
@@ -38,4 +34,19 @@
 	width: 30px;
 	border-radius: 50%;
 	color: var(--light-color);
+}
+
+@media screen and (max-width: 600px) {
+	.Pagination {
+		margin: 10px 0;
+		flex-wrap: wrap;
+	}
+}
+@media screen and (max-width: 400px) {
+	.Pagination {
+		justify-content: center;
+	}
+	.Pagination .action_container {
+		margin-bottom: 15px;
+	}
 }
