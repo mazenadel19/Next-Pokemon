@@ -4,7 +4,7 @@ import React from 'react';
 // Style
 import Styles from './List.module.css';
 
-const List = ({ data }) => {
+const List = ({ data = [] }) => {
 	if (data.length === 0) {
 		return 'No Pokémon found';
 	}
@@ -21,8 +21,8 @@ const List = ({ data }) => {
 							<a className={Styles.link}>
 								<Image
 									loader={myLoader}
-									height={250}
-									width={250}
+									height={150}
+									width={150}
 									src={`${pokemon.image}`}
 									alt={pokemon.name}
 								/>

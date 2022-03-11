@@ -1,8 +1,7 @@
 import Head from 'next/head';
 import { useEffect, useState } from 'react';
 // Components
-import { PokeList, PokePagination, PokeSearch } from '../components';
-import AudioPlayer from '../components/AudioPlayer/AudioPlayer';
+import { PokeList, PokePagination, PokePlayer, PokeSearch } from '../components';
 // Style
 import Styles from '../styles/Home.module.css';
 
@@ -45,14 +44,14 @@ export default function Home() {
 						setPokemonList={setPokemonList}
 					/>
 
-					<AudioPlayer />
+					<PokePlayer />
 				</section>
 
-				<PokeList data={Pagination || PokemonList || FilteredData} />
+				<PokeList data={Pagination} />
 
 				<PokePagination
 					rows={8}
-					PokemonList={PokemonList || FilteredData}
+					PokemonList={PokemonList}
 					setPagination={setPagination}
 				/>
 			</main>

@@ -27,12 +27,12 @@ const Detail = () => {
 	if (!Pokemon) return null;
 
 	return (
-		<div>
+		<div className={Styles.main}>
 			<Head>
 				<title>{Pokemon.name}</title>
 			</Head>
-			<Link href='/'>
-				<a>Back To Home</a>
+			<Link  href='/'>
+				<a className={Styles.link}> &lt;&lt; Back To Home</a>
 			</Link>
 			<div className={Styles.layout}>
 				<div>

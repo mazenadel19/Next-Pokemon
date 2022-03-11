@@ -8,7 +8,7 @@
 	max-width: 1200px;
 	margin: 0 auto;
 	height: 100vh;
-	padding: 20px 0;
+	padding-top: 20px;
 }
 
 .title {
@@ -22,6 +22,12 @@
 .subtitle {
 	display: flex;
 	justify-content: space-between;
+}
+@media screen and (max-width: 1200px) {
+	.main {
+		padding-left: 20px;
+		padding-right: 20px;
+	}
 }
 
 @media screen and (max-width: 600px) {
